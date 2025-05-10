@@ -1,0 +1,25 @@
+{
+    "usuarios": {
+      "samuel": {
+        "senha": "1234",
+        "perfil": "master_samuel",
+        "tipo": "master"
+      },
+      "cliente": {
+        "senha": "12",
+        "perfil": "master_cliente",
+        "tipo": "master"
+      },
+      "joao": {
+        "senha": "12",
+        "perfil": "usuario",
+        "tipo": "cliente"
+      },
+      "maria": {
+        "senha": "maria456",
+        "perfil": "usuario",
+        "tipo": "cliente"
+      }
+    }
+  }
+  
