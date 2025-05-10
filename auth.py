@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import os
 
-CAMINHO_JSON = os.path.join(os.path.dirname(__file__), "utils", "usuarios.json")
+CAMINHO_JSON = "utils/usuarios.json"
 
 def carregar_usuarios():
     if not os.path.exists(CAMINHO_JSON):

@@ -1,7 +1,7 @@
 {
     "usuarios": {
-      "Admin": {
-        "senha": "Admin",
+      "admin": {
+        "senha": "admin",
         "perfil": "master_samuel",
         "tipo": "master"
       },
