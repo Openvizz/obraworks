@@ -13,7 +13,8 @@ def carregar_usuarios():
 
 def login():
     st.subheader("Acesso ao Projetum")
-    st.write("Usuário e Senha: admin")
+    st.write("Usuário: Alex")
+    st.write("Senha: 123")
     st.logo("utils/Logo.svg", link="https://linktr.ee/openviz")
 
     usuario = st.text_input("Usuário")

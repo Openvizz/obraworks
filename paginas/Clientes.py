@@ -3,10 +3,11 @@ import pandas as pd
 from datetime import datetime
 
 def clientes():
-    st.title("Clientes")
+    st.title("👥 Clientes")
     st.write("Preencha as informações necessárias para registrar um novo cliente no sistema.")
 
     def cadastro():
+        
         st.subheader("Formulário de Cadastro de Clientes")
 
         # Obter data e hora atual
@@ -113,7 +114,7 @@ def clientes():
             "Cidade": ["São Paulo", "Rio de Janeiro", "Outro"],
             "UF": ["SP", "RJ", "MG"],
             "Data Cadastro": ["10/05/2025 14:00:00", "10/05/2025 14:05:00", "10/05/2025 14:10:00"],
-            "Situação": ["Ativo", "Inativo", "Pendente"]
+            "Situação": ["Ativo", "Inativo", "Ativo"]
             })
 
         dados_limitados = dados_clientes.head(20)  # Exibe apenas os 20 primeiros registros
@@ -128,7 +129,7 @@ def clientes():
                 "Cidade": st.column_config.TextColumn(disabled=True),
                 "UF": st.column_config.TextColumn(disabled=True),
                 "Data Cadastro": st.column_config.TextColumn(disabled=True),
-                "Situação": st.column_config.SelectboxColumn(options=["Ativo", "Inativo", "Pendente"])
+                "Situação": st.column_config.SelectboxColumn(options=["Ativo", "Inativo"])
             },
             use_container_width=True,
             hide_index=True,
