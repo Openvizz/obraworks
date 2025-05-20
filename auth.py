@@ -12,7 +12,7 @@ def carregar_usuarios():
         return json.load(f)
 
 def login():
-    st.subheader("Acesso ao Projetum")
+    st.subheader("Acesso")
     st.write("Usuário: Alex")
     st.write("Senha: 123")
     st.logo("utils/Logo.svg", link="https://linktr.ee/openviz")

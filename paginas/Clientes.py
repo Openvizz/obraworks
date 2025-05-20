@@ -51,6 +51,7 @@ def clientes():
                             st.error(f"Os seguintes campos são obrigatórios: {', '.join(erros)}.")
                         else:
                             st.success(f"Cliente '{nome}' cadastrado com sucesso!")
+                        
             else:
                 with st.form("Cadastro de Cliente", clear_on_submit=True, border=True):
                     st.subheader("Informações do Cliente")
