@@ -7,18 +7,24 @@ import pandas as pd
 import time
 import uuid
 
-# Define locale brasileiro para moeda
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+# Define locale brasileiro para moeda com fallback
+try:
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+except locale.Error:
+    try:
+        locale.setlocale(locale.LC_ALL, 'pt_BR.utf8')
+    except locale.Error:
+        # Fallback para locale padrão
+        locale.setlocale(locale.LC_ALL, '')
 
 # Caminho do JSON de unidades
 UNIDADES_PATH = r"C:\Openviz\obraworks\utils\un.json"
 
-if "materiais_df" not in st.session_state:
-    st.session_state.materiais_df = pd.DataFrame(columns=[
-        "id", "Código", "Descrição", "Unidade", "Preço Unitário",
-        "Coeficiente (%)", "Data de Cadastro", "Status"
-    ])
-
+if "material_id" not in st.session_state:
+    if not st.session_state.materiais_df.empty:
+        st.session_state.material_id = int(st.session_state.materiais_df["Código"].max()) + 1
+    else:
+        st.session_state.material_id = 1
 
 # Carrega unidades do JSON
 def carregar_unidades(path):
@@ -138,7 +144,7 @@ def materiais():
                     )
                     st.success(f"✅ Material cadastrado com sucesso!")
                     st.session_state.material_id += 1
-                    time.sleep(2)                    
+                    time.sleep(1)                    
                     st.rerun()
 
 
