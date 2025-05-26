@@ -18,13 +18,7 @@ except locale.Error:
         locale.setlocale(locale.LC_ALL, '')
 
 # Caminho do JSON de unidades
-UNIDADES_PATH = r"C:\Openviz\obraworks\utils\un.json"
-
-if "material_id" not in st.session_state:
-    if not st.session_state.materiais_df.empty:
-        st.session_state.material_id = int(st.session_state.materiais_df["Código"].max()) + 1
-    else:
-        st.session_state.material_id = 1
+UNIDADES_PATH = r"utils/un.json"
 
 # Carrega unidades do JSON
 def carregar_unidades(path):
@@ -43,6 +37,17 @@ def format_brl(value):
         return "Valor inválido"
 
 def materiais():
+    if "materiais_df" not in st.session_state:
+        st.session_state.materiais_df = pd.DataFrame(columns=[
+            "id", "Código", "Descrição", "Unidade", "Preço Unitário",
+            "Coeficiente (%)", "Data de Cadastro", "Status"
+        ])
+
+    if "material_id" not in st.session_state:
+        if not st.session_state.materiais_df.empty:
+            st.session_state.material_id = int(st.session_state.materiais_df["Código"].max()) + 1
+        else:
+            st.session_state.material_id = 1
     st.title("📦 Materiais")
     st.write("Gerencie materiais cadastrados. Use as abas para cadastrar ou remover.")
 
